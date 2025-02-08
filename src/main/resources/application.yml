@@ -3,7 +3,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/instagram
     username: root
-    password: wnqls428!
+    password: 1111
 
   jpa:
     hibernate:
