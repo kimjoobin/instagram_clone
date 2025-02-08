@@ -2,7 +2,6 @@ package com.example.instagram.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.apache.logging.log4j.util.Lazy;
 
 @Entity
 @Getter
@@ -23,8 +22,5 @@ public class Post {
     private String title;
 
     private String content;
-
-
-
 
 }
