@@ -5,7 +5,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class HomeService {
+public class PostService {
+
+
+
     public void getStories() {
     }
 
