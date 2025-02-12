@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ToString(exclude = {"postImageList"})
+@ToString(exclude = {"postImageList", "postLikeList"})
 public class Post extends BaseTimeEntity {
 
     @Id

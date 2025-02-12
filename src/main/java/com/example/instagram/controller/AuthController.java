@@ -2,16 +2,16 @@ package com.example.instagram.controller;
 
 import com.example.instagram.common.ApiResponse;
 import com.example.instagram.dto.CreateUserRequestDto;
+import com.example.instagram.dto.LoginRequestDto;
 import com.example.instagram.enums.ResponseCode;
 import com.example.instagram.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/auth")
 @Log4j2
@@ -22,7 +22,6 @@ public class AuthController {
     @PostMapping("/signup")
     public ResponseEntity<ApiResponse<?>> signup(@RequestBody @Valid CreateUserRequestDto requestDto) {
         ResponseCode response = authService.signup(requestDto);
-        log.info("response: {}", response);
         return ResponseEntity
                 .status(response.getStatusCode())
                 .body(ApiResponse.of(response));
@@ -33,8 +32,13 @@ public class AuthController {
         return authService.emailCheck(email);
     }
 
+    @GetMapping("/username/check")
+    public String usernameCheck(@RequestParam String username) {
+        return authService.usernameCheck(username);
+    }
+
     @PostMapping("/login")
-    public void login() {
-        authService.login();
+    public void login(@RequestBody LoginRequestDto requestDto) {
+        authService.login(requestDto);
     }
 }

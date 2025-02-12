@@ -18,6 +18,10 @@ public class PostImage {
     @Column(name = "post_image_id", nullable = false)
     private Long id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id")
+    private Post post;
+
     @Column(name = "post_image_url", columnDefinition = "VARCHAR(300) COMMENT '이미지 경로'")
     private String postImageUrl;
 }
